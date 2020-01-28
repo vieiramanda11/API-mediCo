@@ -1,5 +1,6 @@
 class Api::V1::SessionsController < ApplicationController
   include CurrentUserConcern
+
   def create
     user = User
     .find_by(email: params[:session][:email])
@@ -22,11 +23,10 @@ class Api::V1::SessionsController < ApplicationController
         logged_in: true,
         user: @current_user
       }
-    else {
+    else
       render json: {
         logged_in: false
       }
-    }
     end
   end
 
