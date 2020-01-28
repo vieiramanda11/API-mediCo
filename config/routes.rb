@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       delete :logout, to: 'sessions#logout'
       get :logged_in, to: 'sessions#logged_in'
       resources :doctors, only: [:index]
+      resources :appointments, only: [:index, :create]
     end
   end
 end
