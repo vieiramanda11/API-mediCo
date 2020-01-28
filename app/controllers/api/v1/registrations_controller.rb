@@ -1,10 +1,10 @@
 class Api::V1::RegistrationsController < ApplicationController
   def create
     user = User.create!(
-      email: params['user']['email'],
-      passoword: params['user']['password']
-      passoword_confirmation: params['user']['password_confirmation']
-      name: params['user']['name']
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation],
+      name: params[:name]
     )
     if user
       session[:user_id] = user.id
