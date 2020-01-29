@@ -5,10 +5,9 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     credentials: true
   end
 
-  # heroku link here later
-#   allow do
-#     origins "https://localhost:3000"
-#     resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head],
-#     credentials: true
-#   end
+  allow do
+    origins "https://react-medico.herokuapp.com/"
+    resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head],
+    credentials: true
+  end
 end
