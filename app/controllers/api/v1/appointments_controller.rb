@@ -10,7 +10,7 @@ class Api::V1::AppointmentsController < ApplicationController
     if @current_user
       @appointment = @current_user.appointments.build(appointment_params)
       if @appointment.save
-        render json: @appointment 
+        render json: @appointment
       else
         render json: { status: 401 }
       end
@@ -20,6 +20,6 @@ class Api::V1::AppointmentsController < ApplicationController
   private
 
     def appointment_params
-      params.require(:appointment).permit(:time, :date, @current_user.id, :doctor_id)
+      params.require(:appointment).permit(:time, :date, :user_id, :doctor_id)
     end
 end
